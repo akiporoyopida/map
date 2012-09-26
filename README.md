@@ -1,4 +1,4 @@
-GoogleMapsOverlayiOS
+GoogleMapsOverlayiOS+ alpha
 ====================
 
 If you want to have Google maps instead of Apple maps in your app on iOS6, this is simple solution for this
@@ -18,7 +18,9 @@ Use this, it's the same: <a href="http://wiki.openstreetmap.org/wiki/OSM_in_MapK
 
 Thanks to Nutiteq team for providing source code for OSM!
 
-<hr>
-<br><br>
+***********************************************************************************************************
 
-test
+alpha
+
+1. add traffic information
+2. scroll your position, app start and push left top button
