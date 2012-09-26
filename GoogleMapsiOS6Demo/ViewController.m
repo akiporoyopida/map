@@ -3,6 +3,7 @@
 //  GoogleMapsiOS6Demo
 //
 //  Created by Mladjan Antic on 9/13/12.
+// updated by akipon 
 //  Copyright (c) 2012 Imperio. All rights reserved.
 //
 
@@ -41,7 +42,7 @@ static int flag=0;
     // END OSM
 
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    btn.frame = CGRectMake(10, 10, 30, 30);
+    btn.frame = CGRectMake(10, 10, 60, 60);
     [btn setTitle:@"\U0001F4A9" forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(test:)
   forControlEvents:UIControlEventTouchDown];
@@ -51,6 +52,7 @@ static int flag=0;
 
 -(void)test:(UIButton*)button{
     flag=0;
+    [man startUpdatingLocation];
     NSLog(@"test");
 }
 
@@ -59,23 +61,32 @@ static int flag=0;
            fromLocation:(CLLocation *)oldLocation{
     if (flag) return;
     flag+=1;
+    NSLog(@"mapreset");
 
 
     CLLocationCoordinate2D coordinate = newLocation.coordinate;
     MKMapPoint p = MKMapPointForCoordinate(coordinate);
 //    NSLog(@"%f,%f",p.x,p.y);
+//#define scale 32768.000000
+#define scale (32768.0/8)
 
     MKMapRect visibleRect = [mapView mapRectThatFits:overlay.boundingMapRect];
-    visibleRect.origin.x =p.x-(32768.000000/2.0);
-    visibleRect.origin.y = p.y-(32768.000000/2.0);
-    visibleRect.size.width =32768.000000;
-    visibleRect.size.height =32768.000000;
+    visibleRect.origin.x =p.x-(scale/2.0);
+    visibleRect.origin.y = p.y-(scale/2.0);
+    visibleRect.size.width =scale;
+    visibleRect.size.height =scale;
     mapView.visibleMapRect = visibleRect;
 
 //    CLLocationDegrees latitude = coordinate.latitude;
 //    CLLocationDegrees longitude = coordinate.longitude;
 //    NSString* urlString = [NSString stringWithFormat:@"&ll=%f,%f", latitude, longitude];
 //    NSLog(@"%@",urlString);
+    [man stopUpdatingLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager
+       didFailWithError:(NSError *)error{
+    NSLog(@"didFailWithError");
 }
 
 - (void)didReceiveMemoryWarning

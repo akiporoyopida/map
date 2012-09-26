@@ -68,8 +68,6 @@
 		713BFBA51601436B00769C14 = {
 			isa = PBXGroup;
 			children = (
-				1C11EC221611F53100E5DEAD /* CoreLocation.framework */,
-				713BFBD7160143A600769C14 /* MapKit.framework */,
 				713BFBBA1601436B00769C14 /* GoogleMapsiOS6Demo */,
 				713BFBB31601436B00769C14 /* Frameworks */,
 				713BFBB11601436B00769C14 /* Products */,
@@ -87,6 +85,8 @@
 		713BFBB31601436B00769C14 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1C11EC221611F53100E5DEAD /* CoreLocation.framework */,
+				713BFBD7160143A600769C14 /* MapKit.framework */,
 				713BFBB41601436B00769C14 /* UIKit.framework */,
 				713BFBB61601436B00769C14 /* Foundation.framework */,
 				713BFBB81601436B00769C14 /* CoreGraphics.framework */,
